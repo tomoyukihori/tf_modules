@@ -6,12 +6,14 @@
 module "eks_cluster" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 20.8.5"
-  
-  cluster_name    = "my-eks-cluster"
-  cluster_version = "1.29"
 
-  vpc_id          = data.aws_vpc.main.id
-  subnet_ids      = toset(data.aws_subnets.private.ids)
+  cluster_name                   = "my-eks-cluster"
+  cluster_version                = "1.29"
+  cluster_endpoint_public_access = true
+
+  vpc_id                   = data.aws_vpc.main.id
+  subnet_ids               = toset(data.aws_subnets.private.ids)
+  control_plane_subnet_ids = toset(data.aws_subnets.private.ids)
 }
 
 # example

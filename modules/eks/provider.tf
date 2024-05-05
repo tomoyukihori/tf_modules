@@ -17,5 +17,5 @@ terraform {
 }
 
 provider "kubernetes" {
-  config_context_cluster = module.eks_cluster.cluster_id
+  config_context_cluster = module.eks_cluster.cluster_endpoint
 }
