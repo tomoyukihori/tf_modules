@@ -5,7 +5,7 @@
 
 module "eks_cluster" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "~> 20.8.5"
+  version = "~> 20.13.1"
 
   cluster_name                   = "my-eks-cluster"
   cluster_version                = "1.29"
@@ -87,7 +87,6 @@ resource "kubernetes_deployment" "nginx" {
   metadata {
     name = "nginx-deployment"
   }
-
   spec {
     replicas = 2
     selector {
